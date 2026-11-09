@@ -2,7 +2,6 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     // The Glance widget is Compose code, so the Compose compiler runs for
     // the app module too.
     id("org.jetbrains.kotlin.plugin.compose")
