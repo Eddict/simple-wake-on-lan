@@ -171,7 +171,7 @@ class AppConstants {
   /// AboutPage Elements
   static const sourceCodeIcon = Icons.code;
   static const licenseIcon = Icons.article;
-  static const sourceCodeLink = 'https://github.com/lcdss/swol';
+  static const sourceCodeLink = 'https://github.com/Eddict/simple-wake-on-lan';
 
   /// Other
   static const screenPadding = EdgeInsets.only(

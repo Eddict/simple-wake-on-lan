@@ -25,7 +25,7 @@ if (hasReleaseKeystore) {
 }
 
 android {
-    namespace = "dev.lcss.swol"
+    namespace = "nl.eddict.simplewol"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -35,7 +35,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "dev.lcss.swol"
+        applicationId = "nl.eddict.simplewol"
         // Wake-on-LAN needs no platform APIs newer than this, and 28 is what
         // the project has shipped against.
         minSdk = 28
@@ -46,6 +46,14 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Target a Single Specific ABI
+        ndk {
+            // Clear Flutter's automatically applied filters
+            abiFilters.clear() 
+            // Explicitly add only the ABIs to compile
+            abiFilters.addAll(listOf("arm64-v8a")) 
+        }
     }
 
     if (hasReleaseKeystore) {
@@ -71,13 +79,28 @@ android {
                 // So `flutter run --release` still works without the keystore.
                 signingConfigs.getByName("debug")
             }
+
+            // https://github.com/flutter/flutter/issues/29509#issuecomment-648044290
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def appName = "nl.eddict.simplewol_"
+                    def buildType = variant.variantData.variantConfiguration.buildType.name
+                    def newName
+                    if (buildType == 'debug'){
+                        newName = "app-${variant.getFlavorName()}-debug.apk"
+                    } else {
+                        newName = "${appName}${defaultConfig.versionName}_${variant.getFlavorName()}.apk"
+                    }
+                    outputFileName = newName
+                }
+            }
         }
     }
 }
 
 kotlin {
     compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
@@ -86,9 +109,9 @@ flutter {
 }
 
 dependencies {
-    implementation("androidx.glance:glance-appwidget:1.1.1")
-    implementation("androidx.glance:glance-material3:1.1.1")
+    implementation("androidx.glance:glance-appwidget:1.2.0")
+    implementation("androidx.glance:glance-material3:1.2.0")
     // glance-material3 wraps M3 color schemes but does not re-export the
     // types the fallback palette is built from.
-    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation("androidx.compose.material3:material3:1.4.0")
 }

@@ -1,19 +1,20 @@
 <img src="docs/icon.png" width="96" align="right"  alt=""/>
 
-# swol - Simple Wake on Lan
+# SimpleWoL - Simple Wake on Lan
 
 <p float="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"></a>
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-%2302569B.svg?logo=Flutter&logoColor=white" alt="Flutter"></a>
   <a href="https://www.dart.dev"><img src="https://img.shields.io/badge/Dart-%230175C2.svg?logo=dart&logoColor=white" alt="Dart"></a>
-  <a href="https://github.com/lcdss/swol/actions/workflows/lint.yml"><img src="https://github.com/lcdss/swol/actions/workflows/lint.yml/badge.svg?branch=main" alt="Workflow Lint"></a>
-  <a href="https://github.com/lcdss/swol/releases"><img src="https://img.shields.io/github/release/lcdss/swol.svg?logo=github&color=blue" alt="GitHub Release"></a>
+  <a href="https://github.com/Eddict/simple-wake-on-lan/actions/workflows/lint.yml"><img src="https://github.com/Eddict/simple-wake-on-lan/actions/workflows/lint.yml/badge.svg?branch=main" alt="Workflow Lint"></a>
+  <a href="https://github.com/Eddict/simple-wake-on-lan/releases"><img src="https://img.shields.io/github/release/Eddict/simple-wake-on-lan.svg?logo=github&color=blue" alt="GitHub Release"></a>
 </p>
 
-swol is an Android app that sends Wake-on-LAN packets to devices on your local network.
+Simple Wake on Lan a simple flutter application for Android arm64-v8a to send Wake-on-LAN packets to devices on your local network.
 
-It is a fork of [herzhenr/simple-wake-on-lan](https://github.com/herzhenr/simple-wake-on-lan),
-trimmed to Android only.
+- This repository is a fork of [herzhenr/simple-wake-on-lan](https://github.com/herzhenr/simple-wake-on-lan)  - see the [LICENSE](LICENSE) file for details.
+- Forked repository [lcdss/swol](https://github.com/lcdss/swol) was fetched and merged to make it an Android-only version.
+- This repository trims it down to arm64-v8a only.
 
 ## Usage
 
@@ -75,8 +76,7 @@ hardware that supports SecureOn.
 
 ## Download
 
-Grab an APK or App Bundle from [GitHub Releases](https://github.com/lcdss/swol/releases).
-`app-arm64-v8a-release.apk` is the right build for essentially any current phone.
+You can download the latest version of the app from [GitHub Releases]().
 
 ## Architecture
 
@@ -105,8 +105,7 @@ Useful commands:
 dart analyze --fatal-infos                      # what CI gates on
 dart format --output=none --set-exit-if-changed .
 flutter test
-flutter build apk --release --split-per-abi
-flutter build appbundle --release
+flutter build apk --release -Pdisable-abi-filtering=true
 ```
 
 Release builds fall back to the debug signing keys unless `android/key.properties` exists:

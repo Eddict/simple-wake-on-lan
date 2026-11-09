@@ -66,21 +66,15 @@ jobs:
       - name: Run tests
         run: flutter test
 
-      - name: Build Flutter (App Bundle)
-        run: flutter build appbundle --release
-
       # The Flutter Gradle Plugin adds 1000 * ABI_VERSION to versionCode here.
       - name: Build Flutter (APK)
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release -Pdisable-abi-filtering=true
 
       - uses: actions/upload-artifact@v7
         with:
           name: Releases
           path: |
-            build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
             build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-            build/app/outputs/flutter-apk/app-x86_64-release.apk
-            build/app/outputs/bundle/release/app-release.aab
 
       - name: Extract version from pubspec.yaml
         id: extract_version
@@ -109,7 +103,7 @@ jobs:
         if: steps.check_release.outputs.exists == 'false'
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk,build/app/outputs/flutter-apk/app-arm64-v8a-release.apk,build/app/outputs/flutter-apk/app-x86_64-release.apk,build/app/outputs/bundle/release/app-release.aab"
+          artifacts: "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk"
           tag: v${{ env.VERSION }}
           # The built-in token, so there is no PAT to expire -- the previous one
           # did, and every release silently failed with 401 once it had.

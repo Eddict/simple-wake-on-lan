@@ -1,4 +1,4 @@
-package dev.lcss.swol
+package nl.eddict.simplewol
 
 import es.antonborri.home_widget.HomeWidgetGlanceWidgetReceiver
 

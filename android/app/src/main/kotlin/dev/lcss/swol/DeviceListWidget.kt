@@ -1,4 +1,4 @@
-package dev.lcss.swol
+package nl.eddict.simplewol
 
 import android.content.Context
 import android.net.Uri

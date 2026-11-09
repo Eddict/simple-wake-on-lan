@@ -43,7 +43,7 @@ void main() {
     savedThemeMode: AdaptiveThemeMode.light,
     packageInfo: PackageInfo(
       appName: 'swol',
-      packageName: 'dev.lcss.swol',
+      packageName: 'nl.eddict.simplewol',
       version: '1.2.1',
       buildNumber: '1',
     ),
