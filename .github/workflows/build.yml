@@ -53,6 +53,13 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Check for outdated dependencies
+        run: flutter pub outdated
+
+      - name: Upgrade dependencies
+        if: 0 == 1
+        run: flutter pub upgrade --dry-run
+
       - name: Analyze project source
         run: dart analyze --fatal-infos
 
