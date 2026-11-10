@@ -23,6 +23,9 @@ jobs:
   release-android:
     name: Create Android release
     runs-on: ubuntu-latest
+    env:
+      APPID: #com.example.app
+      VERSION: #1.0.0
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -165,8 +168,10 @@ jobs:
       - name: Rename APK
         shell: bash
         run: |
-          mv build/app/outputs/flutter-apk/app-release.apk \
+          cp -a build/app/outputs/flutter-apk/app-release.apk \
             build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk
+          cp -a build/app/outputs/flutter-apk/app-release.apk \
+            build/app/outputs/flutter-apk/${{ env.APPID }}.apk
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v7
@@ -175,12 +180,15 @@ jobs:
           if-no-files-found: error
           path: |
             build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk
+            build/app/outputs/flutter-apk/${{ env.APPID }}.apk
 
       - name: Create GitHub Release
         if: steps.check_release.outputs.exists == 'false'
         uses: ncipollo/release-action@v1
         with:
-          artifacts: build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk
+          artifacts: |
+            build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk
+            build/app/outputs/flutter-apk/${{ env.APPID }}.apk
           tag: v${{ env.VERSION }}
           # The built-in token, so there is no PAT to expire -- the previous one
           # did, and every release silently failed with 401 once it had.
