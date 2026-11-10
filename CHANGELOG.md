@@ -1,5 +1,50 @@
 # Changelog
 
+## [1.4.6] - 26-11-10
+
+### Changed
+
+- the project package is now `simplewol` instead of `swol`: the Dart package
+  name, every import, the Android app label and the home screen widget title
+  all use the new name
+- the Android application id is declared once, as `android.applicationId` in
+  `gradle.properties`; the Gradle build and the release workflow both read it
+  from there instead of hardcoding it
+- the released APK is named `<applicationId>_<version>.apk` instead of the
+  generic `app-arm64-v8a-release.apk`
+- the build workflow, its job and all its steps now carry descriptive names
+  in the Actions UI
+
+## [1.4.5] - 26-11-10
+
+### Changed
+
+- the Android application id moved from `dev.lcss.swol` to
+  `nl.eddict.simplewol`
+- releases now ship a single `arm64-v8a` APK; the app bundle and the
+  `armeabi-v7a` and `x86_64` APKs are no longer built or attached
+- Glance 1.1.1 -> 1.2.0 and Compose Material 3 1.3.2 -> 1.4.0
+- the transitive dependencies that remain outdated are recorded as comments
+  in `pubspec.yaml` for the next upgrade round
+
+## [1.4.4] - 26-11-09
+
+### Changed
+
+- the direct dependencies moved to their current releases per
+  `flutter pub outdated`, including the majors `file_picker` 12 -> 13,
+  `home_widget` 0.9 -> 0.10 and `material_ui` 1.0 -> 1.10
+- every transitive dependency and dev dependency updated to its latest
+  resolvable version
+
+## [1.4.3] - 26-11-09
+
+### Changed
+
+- the Android build uses Gradle's built-in Kotlin support instead of the
+  standalone `org.jetbrains.kotlin.android` plugin
+- CI reports outdated dependencies with `flutter pub outdated` on every build
+
 ## [1.4.2] - 26-08-23
 
 ### Fixed
