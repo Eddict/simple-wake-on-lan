@@ -69,8 +69,8 @@ jobs:
           JSON_DATA=$(flutter pub outdated --json)
           
           # Count packages where current version doesn't match the resolvable (compatible) version
-          COMPATIBLE_COUNT=$(echo "$JSON_DATA" | jq '[.packages[] | select(.version.current != .version.resolvable)] | length')
-          
+          COMPATIBLE_COUNT=$(echo "$JSON_DATA" | jq '[.packages[] | select(.current.version != .resolvable.version)] | length')
+
           echo "Found $COMPATIBLE_COUNT packages with compatible updates."
           
           # Set the output variable for next steps
