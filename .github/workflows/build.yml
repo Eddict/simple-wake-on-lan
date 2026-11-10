@@ -97,9 +97,11 @@ jobs:
 
       - name: Create Pull Request
         if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'true' }}
+        # github.event.pull_request.head.repo.full_name == github.repository && 
         uses: peter-evans/create-pull-request@v8
         with:
           draft: true
+          token: ${{ secrets.PE_CPR_PAT }}
 
           # The branch name where changes will be pushed
           branch: automated-feature-updates
