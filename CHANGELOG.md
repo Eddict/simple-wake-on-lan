@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.4.7] - 26-11-11
+
+### Added
+
+- CI counts the compatible dependency updates from `flutter pub outdated
+  --json`; when there are any it runs `flutter pub upgrade` and opens an
+  automated draft pull request with the result
+- releases also attach a versionless `<applicationId>.apk` next to the
+  versioned one, so the latest release is always downloadable from the same
+  URL
+
+### Changed
+
+- Gradle builds are cached: `org.gradle.caching=true` plus the
+  `gradle/actions/setup-gradle` action instead of `setup-java`'s built-in
+  Gradle cache
+
+### Fixed
+
+- the release artifact upload quoted its path, which `actions/upload-artifact`
+  does not strip, so the APK was never found; the upload now also fails loudly
+  instead of silently when no files match
+- the automated pull request uses a personal access token, since the built-in
+  `GITHUB_TOKEN` lacks the permission to open PRs on a forked repository
+
 ## [1.4.6] - 26-11-10
 
 ### Changed
