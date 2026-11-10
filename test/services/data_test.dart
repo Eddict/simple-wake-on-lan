@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:swol/services/data.dart';
+import 'package:simplewol/services/data.dart';
 
 StorageDevice buildStorageDevice({
   String id = 'id-1',

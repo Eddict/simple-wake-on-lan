@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
-import 'package:swol/services/data.dart';
-import 'package:swol/services/database.dart';
+import 'package:simplewol/services/data.dart';
+import 'package:simplewol/services/database.dart';
 
 /// Points path_provider at a real temporary directory so DeviceStorage can be
 /// exercised end to end without a platform channel.
@@ -97,7 +97,7 @@ void main() {
     const storage = DeviceStorage();
 
     setUp(() async {
-      temp = await Directory.systemTemp.createTemp('swol_storage_test');
+      temp = await Directory.systemTemp.createTemp('simplewol_storage_test');
       PathProviderPlatform.instance = _TempPathProvider(temp);
     });
 

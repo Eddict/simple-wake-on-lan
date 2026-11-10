@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'package:swol/constants.dart';
-import 'package:swol/widgets/layout_elements.dart';
-import 'package:swol/widgets/universal_ui_components.dart';
+import 'package:simplewol/constants.dart';
+import 'package:simplewol/widgets/layout_elements.dart';
+import 'package:simplewol/widgets/universal_ui_components.dart';
 
 void main() {
   Future<void> pumpCard(WidgetTester tester, DeviceCard card) =>

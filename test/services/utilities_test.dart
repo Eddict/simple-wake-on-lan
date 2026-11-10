@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:swol/constants.dart';
-import 'package:swol/services/utilities.dart';
+import 'package:simplewol/constants.dart';
+import 'package:simplewol/services/utilities.dart';
 
 void main() {
   group('ipToNumeric', () {
@@ -88,7 +88,7 @@ void main() {
   group('hostToIp', () {
     test('returns null for a name that cannot resolve', () async {
       // .invalid is reserved by RFC 2606 and must never resolve.
-      expect(await hostToIp('swol-test-host.invalid'), isNull);
+      expect(await hostToIp('simplewol-test-host.invalid'), isNull);
     });
 
     test('resolves localhost to its IPv4 address', () async {

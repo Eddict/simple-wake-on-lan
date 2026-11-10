@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:swol/services/form_input_formatters.dart';
+import 'package:simplewol/services/form_input_formatters.dart';
 
 TextEditingValue value(String text) => TextEditingValue(
   text: text,

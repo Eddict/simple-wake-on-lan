@@ -24,8 +24,10 @@ if (hasReleaseKeystore) {
     check(missing.isEmpty()) { "key.properties is missing: ${missing.joinToString()}" }
 }
 
+val appId = providers.gradleProperty("android.applicationId").get()
+
 android {
-    namespace = "nl.eddict.simplewol"
+    namespace = appId
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -35,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "nl.eddict.simplewol"
+        applicationId = appId
         // Wake-on-LAN needs no platform APIs newer than this, and 28 is what
         // the project has shipped against.
         minSdk = 28

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:swol/constants.dart';
+import 'package:simplewol/constants.dart';
 
 int ipToNumeric(String ipAddress) {
   final parts = ipAddress.split('.');

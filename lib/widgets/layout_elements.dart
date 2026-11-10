@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-import 'package:swol/widgets/universal_ui_components.dart';
+import 'package:simplewol/widgets/universal_ui_components.dart';
 
 import '../constants.dart';
 

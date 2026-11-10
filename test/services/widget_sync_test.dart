@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:swol/services/data.dart';
-import 'package:swol/services/widget_sync.dart';
+import 'package:simplewol/services/data.dart';
+import 'package:simplewol/services/widget_sync.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

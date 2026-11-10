@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'package:swol/l10n/app_localizations.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
 
-import 'package:swol/constants.dart';
+import 'package:simplewol/constants.dart';
 
 import '../../services/data.dart';
 import '../../services/database.dart';

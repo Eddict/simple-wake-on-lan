@@ -7,7 +7,7 @@
     <!-- allowBackup is deliberate: the device list is worth restoring on a
          new phone and contains nothing beyond LAN hostnames and MACs. -->
     <application
-        android:label="swol"
+        android:label="simplewol"
         android:name="${applicationName}"
         android:allowBackup="true"
         android:enableOnBackInvokedCallback="true"

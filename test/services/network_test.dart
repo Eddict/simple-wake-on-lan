@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:swol/services/data.dart';
-import 'package:swol/services/network.dart';
+import 'package:simplewol/services/data.dart';
+import 'package:simplewol/services/network.dart';
 
 NetworkDevice device({
   String ipAddress = '192.168.1.10',

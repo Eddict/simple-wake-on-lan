@@ -185,7 +185,7 @@ class WakeDeviceAction : ActionCallback {
         val id = parameters[deviceId] ?: return
 
         HomeWidgetBackgroundIntent
-            .getBroadcast(context, Uri.parse("swol://wake?id=" + Uri.encode(id)))
+            .getBroadcast(context, Uri.parse("simplewol://wake?id=" + Uri.encode(id)))
             .send()
     }
 

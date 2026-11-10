@@ -1,9 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:swol/l10n/app_localizations.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
 
-import 'package:swol/widgets/chip_cards.dart';
+import 'package:simplewol/widgets/chip_cards.dart';
 
 class AppConstants {
   /// Seed for the Material 3 tonal palettes, taken from the launcher icon.

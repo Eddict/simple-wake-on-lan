@@ -4,10 +4,10 @@ import 'dart:isolate';
 
 import 'package:dart_ping/dart_ping.dart';
 import 'package:network_info_plus/network_info_plus.dart';
-import 'package:swol/services/utilities.dart';
+import 'package:simplewol/services/utilities.dart';
 import 'package:wake_on_lan/wake_on_lan.dart';
 
-import 'package:swol/constants.dart';
+import 'package:simplewol/constants.dart';
 
 import 'data.dart';
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="widget_title">swol</string>
+    <string name="widget_title">simplewol</string>
     <string name="widget_description">Wake your devices with one tap</string>
     <string name="widget_empty">No devices yet. Open the app to add one.</string>
     <string name="widget_wake">Wake</string>

@@ -2,7 +2,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:swol/constants.dart';
+import 'package:simplewol/constants.dart';
 
 /// Whether the app follows the system's Material You palette. A global
 /// notifier so the running MaterialApp rebuilds when Settings flips it.

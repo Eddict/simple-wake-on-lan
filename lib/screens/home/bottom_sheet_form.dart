@@ -1,14 +1,14 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
-import 'package:swol/l10n/app_localizations.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
 import 'package:rich_text_controller/rich_text_controller.dart';
 
-import 'package:swol/constants.dart';
-import 'package:swol/screens/home/discover.dart';
-import 'package:swol/screens/home/home.dart';
-import 'package:swol/services/data.dart';
-import 'package:swol/widgets/layout_elements.dart';
+import 'package:simplewol/constants.dart';
+import 'package:simplewol/screens/home/discover.dart';
+import 'package:simplewol/screens/home/home.dart';
+import 'package:simplewol/services/data.dart';
+import 'package:simplewol/widgets/layout_elements.dart';
 
 import '../../services/database.dart';
 import '../../services/form_input_formatters.dart';

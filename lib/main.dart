@@ -2,15 +2,15 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:swol/l10n/app_localizations.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import 'package:swol/constants.dart';
-import 'package:swol/screens/about/about.dart';
-import 'package:swol/screens/home/home.dart';
-import 'package:swol/screens/settings/settings.dart';
-import 'package:swol/services/theme_settings.dart';
-import 'package:swol/services/widget_callback.dart';
+import 'package:simplewol/constants.dart';
+import 'package:simplewol/screens/about/about.dart';
+import 'package:simplewol/screens/home/home.dart';
+import 'package:simplewol/screens/settings/settings.dart';
+import 'package:simplewol/services/theme_settings.dart';
+import 'package:simplewol/services/widget_callback.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,4 +1,4 @@
-import 'package:swol/services/utilities.dart';
+import 'package:simplewol/services/utilities.dart';
 
 sealed class Device implements Comparable<Device> {
   final String hostName;

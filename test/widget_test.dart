@@ -8,8 +8,8 @@ import 'package:path_provider_platform_interface/path_provider_platform_interfac
 import 'package:shared_preferences_platform_interface/in_memory_shared_preferences_async.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_async_platform_interface.dart';
 
-import 'package:swol/l10n/app_localizations.dart';
-import 'package:swol/main.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
+import 'package:simplewol/main.dart';
 
 class _TempPathProvider extends PathProviderPlatform {
   _TempPathProvider(this.directory);
@@ -28,7 +28,7 @@ void main() {
   late Directory temp;
 
   setUp(() async {
-    temp = await Directory.systemTemp.createTemp('swol_widget_test');
+    temp = await Directory.systemTemp.createTemp('simplewol_widget_test');
     PathProviderPlatform.instance = _TempPathProvider(temp);
     // adaptive_theme persists the selected mode through shared_preferences.
     SharedPreferencesAsyncPlatform.instance =
@@ -42,7 +42,7 @@ void main() {
   Widget buildApp() => MyApp(
     savedThemeMode: AdaptiveThemeMode.light,
     packageInfo: PackageInfo(
-      appName: 'swol',
+      appName: 'simplewol',
       packageName: 'nl.eddict.simplewol',
       version: '1.2.1',
       buildNumber: '1',

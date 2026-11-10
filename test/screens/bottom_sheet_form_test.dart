@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
-import 'package:swol/l10n/app_localizations.dart';
-import 'package:swol/screens/home/bottom_sheet_form.dart';
-import 'package:swol/services/data.dart';
+import 'package:simplewol/l10n/app_localizations.dart';
+import 'package:simplewol/screens/home/bottom_sheet_form.dart';
+import 'package:simplewol/services/data.dart';
 
 class _TempPathProvider extends PathProviderPlatform {
   _TempPathProvider(this.directory);
@@ -21,7 +21,7 @@ void main() {
   late Directory temp;
 
   setUp(() async {
-    temp = await Directory.systemTemp.createTemp('swol_form_test');
+    temp = await Directory.systemTemp.createTemp('simplewol_form_test');
     PathProviderPlatform.instance = _TempPathProvider(temp);
   });
 
