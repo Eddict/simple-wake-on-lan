@@ -85,13 +85,15 @@ jobs:
         if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'true' }}
         run: |
           echo "⚠️ Warning: Safe package upgrades are waiting!"
-          echo "You should run 'flutter pub upgrade' locally."
+          # echo "You should run 'flutter pub upgrade' locally."
           # Add any custom notification, comment logic, or auto-PR tool here.
+          echo "Running 'flutter pub upgrade'."
+          flutter pub upgrade
 
-      - name: Conditional Next Step (Everything up-to-date)
-        if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'false' }}
-        run: |
-          echo "✅ Clean build! No compatible dependency updates required."
+      # - name: Conditional Next Step (Everything up-to-date)
+      #   if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'false' }}
+      #   run: |
+      #     echo "✅ Clean build! No compatible dependency updates required."
 
       - name: Create Pull Request
         if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'true' }}
