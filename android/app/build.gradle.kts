@@ -81,21 +81,6 @@ android {
                 // So `flutter run --release` still works without the keystore.
                 signingConfigs.getByName("debug")
             }
-
-            // https://github.com/flutter/flutter/issues/29509#issuecomment-648044290
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    def appName = "nl.eddict.simplewol_"
-                    def buildType = variant.variantData.variantConfiguration.buildType.name
-                    def newName
-                    if (buildType == 'debug'){
-                        newName = "app-${variant.getFlavorName()}-debug.apk"
-                    } else {
-                        newName = "${appName}${defaultConfig.versionName}_${variant.getFlavorName()}.apk"
-                    }
-                    outputFileName = newName
-                }
-            }
         }
     }
 }
