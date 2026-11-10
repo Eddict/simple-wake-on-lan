@@ -154,26 +154,30 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Extract applicationId from android/gradle.properties
+        id: extract_app_id
+        run: |
+          app_id=$(sed -n 's/^android\.applicationId=//p' android/gradle.properties)
+          echo "APPID=${app_id}" >> $GITHUB_ENV
+
       - name: Rename APK
         shell: bash
         run: |
-          app_id=$(sed -n 's/^android\.applicationId=//p' android/gradle.properties)
           mv build/app/outputs/flutter-apk/app-release.apk \
-            "build/app/outputs/flutter-apk/${app_id}_${VERSION}.apk"
-          echo "APPID=${app_id}" >> $GITHUB_ENV
+            "build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk"
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v7
         with:
           name: Releases
           path: |
-            "build/app/outputs/flutter-apk/${APPID}_${VERSION}.apk"
+            "build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk"
 
       - name: Create GitHub Release
         if: steps.check_release.outputs.exists == 'false'
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/flutter-apk/${APPID}_${VERSION}.apk"
+          artifacts: "build/app/outputs/flutter-apk/${{ env.APPID }}_${{ env.VERSION }}.apk"
           tag: v${{ env.VERSION }}
           # The built-in token, so there is no PAT to expire -- the previous one
           # did, and every release silently failed with 401 once it had.
