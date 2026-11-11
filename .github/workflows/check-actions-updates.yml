@@ -64,6 +64,10 @@ jobs:
           echo "## GitHub Actions Update Check" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
+          # Output actions-up's version
+          echo "Checking actions-up version..."
+          actions-up --version
+
           # Run actions-up and capture machine-readable output
           echo "Running actions-up to check for updates..."
           # --style preserve
