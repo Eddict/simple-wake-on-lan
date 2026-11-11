@@ -31,6 +31,9 @@ on:
 
 env:
   package-name: "actions-up"  # "@eddict/actions-up"
+  MODE: ${{ inputs.mode || 'major' }}
+  STYLE: ${{ inputs.style || 'sha' }}
+  MIN_AGE: ${{ inputs.min-age || '0' }}
 
 jobs:
   check-actions:
@@ -65,9 +68,9 @@ jobs:
           echo "Running actions-up to check for updates..."
           # --style preserve
           actions-up \
-            --style ${{ github.event.inputs.style }} \
-            --mode ${{ github.event.inputs.mode }} \
-            --min-age ${{ github.event.inputs.min-age }} \
+            --style ${{ env.STYLE }} \
+            --mode ${{ env.MODE }} \
+            --min-age ${{ env.MIN_AGE }} \
             --dir .github --recursive \
             --json > actions-up-report.json
 
