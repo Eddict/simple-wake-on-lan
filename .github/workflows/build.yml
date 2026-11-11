@@ -90,22 +90,14 @@ jobs:
             echo "has_compatible_updates=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # --- EXAMPLE OF NEXT STEP USING THE RESULT ---
-      - name: Conditional Next Step (Updates available)
+      - name: Upgrade dependencies
         if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'true' }}
         run: |
-          echo "⚠️ Warning: Safe package upgrades are waiting!"
-          # echo "You should run 'flutter pub upgrade' locally."
-          # Add any custom notification, comment logic, or auto-PR tool here.
           echo "Running 'flutter pub upgrade'."
           flutter pub upgrade
 
-      # - name: Conditional Next Step (Everything up-to-date)
-      #   if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'false' }}
-      #   run: |
-      #     echo "✅ Clean build! No compatible dependency updates required."
-
-      - name: Create Pull Request
+      - name: Create pull request
+        id: create-pull-request
         if: ${{ steps.outdated-check.outputs.has_compatible_updates == 'true' }}
         # github.event.pull_request.head.repo.full_name == github.repository && 
         uses: peter-evans/create-pull-request@v8
@@ -126,6 +118,24 @@ jobs:
           labels: |
             automated-pr
             dependencies
+
+      - name: Check pull request outputs
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: |
+          echo "Pull Request Number - ${{ steps.create-pull-request.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.create-pull-request.outputs.pull-request-url }}"
+
+      # - name: Enable pull request automerge
+      #   uses: peter-evans/enable-pull-request-automerge@v3
+      #   with:
+      #     token: ${{ secrets.PE_CPR_PAT }}
+      #     pull-request-number: ${{ steps.create-pull-request.outputs.pull-request-number }}
+
+      # - name: Enable pull request automerge
+      #   if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+      #   run: gh pr merge --merge --auto "${{ steps.create-pull-request.outputs.pull-request-number }}"
+      #   env:
+      #     GH_TOKEN: ${{ secrets.PE_CPR_PAT }}
 
       - name: Upgrade dependencies
         if: 0 == 1
