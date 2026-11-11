@@ -71,11 +71,13 @@ jobs:
           # Run actions-up and capture machine-readable output
           echo "Running actions-up to check for updates..."
           # --style preserve
+          # Keep setup-gradle on v5; v6 changes the caching-provider/licensing model.
           actions-up \
             --style ${{ env.STYLE }} \
             --mode ${{ env.MODE }} \
             --min-age ${{ env.MIN_AGE }} \
             --dir .github --recursive \
+            --exclude '^gradle/actions/setup-gradle$' \
             --json > actions-up-report.json
 
           UPDATE_COUNT=$(node -pe "JSON.parse(require('node:fs').readFileSync('actions-up-report.json', 'utf8')).summary.totalUpdates")
