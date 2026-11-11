@@ -22,7 +22,7 @@ on:
           - sha
           - preserve
           - semver
-        default: sha
+        default: semver
       min-age: # Minimum age in days for updates (default: 1, use 0 to disable)
         description: 'Minimum age in days for updates'
         required: true
@@ -32,7 +32,7 @@ on:
 env:
   package-name: "actions-up"  # "@eddict/actions-up"
   MODE: ${{ inputs.mode || 'major' }}
-  STYLE: ${{ inputs.style || 'sha' }}
+  STYLE: ${{ inputs.style || 'semver' }}
   MIN_AGE: ${{ inputs.min-age || '0' }}
 
 jobs:
